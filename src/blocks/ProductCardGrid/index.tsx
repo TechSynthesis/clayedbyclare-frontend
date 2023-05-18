@@ -60,7 +60,7 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
                   return (
                     <Cell key={index} cols={cols} colsL={cols} colsM={4} colsS={smallCols}>
                       <div className={classes.card}>
-                        <SliderProvider slidesToShow={1} scrollSnap={true}>
+                        <SliderProvider slidesToShow={1}>
                           <div className={classes.trackWrap}>
                             <SliderTrack className={classes.sliderTrack}>
                               {productImageSlides &&
@@ -89,20 +89,6 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
                                   )
                                 })}
                             </SliderTrack>
-
-                            <SliderNav
-                              className={classes.sliderNav}
-                              prevButtonProps={{
-                                className: [classes.navButton, classes.prevButton]
-                                  .filter(Boolean)
-                                  .join(' '),
-                                children: <ArrowIcon rotation={225} />,
-                              }}
-                              nextButtonProps={{
-                                className: classes.navButton,
-                                children: <ArrowIcon rotation={45} />,
-                              }}
-                            />
                           </div>
                         </SliderProvider>
                         <div className={classes.cardInfo}>
