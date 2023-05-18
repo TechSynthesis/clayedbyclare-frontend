@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.cmw-dryice.com
+
+# Sitemaps
+Sitemap: https://www.cmw-dryice.com/sitemap.xml

@@ -1,0 +1,36 @@
+@use '@scss/common.scss' as *;
+.grid {
+  align-items: start  ;
+  
+}
+
+.media {
+  width: calc(100% + var(--gutter-h));
+  max-width: 800px;
+}
+
+.link {
+  margin: var(--base) 0 !important;
+}
+.label {
+  font-size: 13px;
+   @include label; 
+    
+}
+.productHeading{
+  text-decoration: none;
+}
+
+.actions {
+  width: 100%;
+  list-style-type: none;  
+  padding-left: 0;
+  > li {
+    width: 100%;
+  }
+}
+// .spacer {
+//     flex-grow: 1;
+//     height: calc(var(--base) * 2);
+//     flex-shrink: 0;
+// }

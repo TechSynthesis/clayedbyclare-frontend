@@ -1,0 +1,199 @@
+@use '@scss/common.scss' as *;
+
+.content {
+  max-width: 1200px;
+
+  h2 {
+    @include h1;
+  }
+}
+
+.wrap {
+  padding-top: var(--base);
+  position: relative;
+  overflow-x: scroll;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+
+.inner {
+  width: 100%;
+  margin-left: 0; //-25vw
+  // overflow-x: hidden;
+
+   
+}
+
+.title {
+  position: absolute;
+  top: calc(var(--base) * 4);
+  z-index: 1;
+  width: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+
+  @include mid-break {
+    top: var(--base);
+  }
+}
+
+.titleInner {
+  @include large-body;
+  @include shadow-lg;
+  background: var(--theme-bg);
+  padding: calc(var(--base) * 1.5) calc(var(--base) * 2.5);
+  margin-top: var(--base);
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid;
+
+  svg {
+    margin-right: calc(var(--base) * .75);
+    width: calc(var(--base) * 1.5);
+    height: calc(var(--base) * 1.5)
+  }
+
+  @include mid-break {
+    padding: var(--base) calc(var(--base) * 2);
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap !important;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  &:nth-child(odd) {
+    right: 5vh;
+  }
+
+  &:nth-child(even) {
+    left: 5vh;
+  }
+  
+  @include large-break {
+    flex-wrap: wrap;
+
+    &:nth-child(odd) {
+      right: 5vh;
+    }
+  
+    &:nth-child(even) {
+      left: 5vh;
+    }
+  }
+
+  @include mid-break {
+    flex-wrap: wrap;
+
+    &:nth-child(odd) {
+      right: 5vh;
+    }
+  
+    &:nth-child(even) {
+      left: 5vh;
+    }
+
+    &:first-child {
+      li:first-child {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      li:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+.imageWrap {
+  // width: 33.33%;
+  min-width: 320px;
+  width: 440px;
+  height: auto;
+  padding: var(--base);
+
+  @include large-break {
+    padding: calc(var(--base) * .5);
+  }
+
+  @include mid-break {
+    width: 50%;
+  }
+}
+
+.image {
+  display: block;
+  transition: all 200ms ease-out;
+  padding-top: 56.25%;
+  position: relative;
+  height: 100%;
+  opacity: .8;
+  z-index: 1;
+ 
+  &:hover {
+    @include shadow-lg;
+    opacity: 1;
+    transform: translate3d(0, calc(var(--base) * -1), 0);
+  }
+
+  @include mid-break {
+    opacity: 1;
+    transition: none;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}
+.image img {
+  object-fit: cover;
+}
+
+.caseStudyTitle{
+  display: flex;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-weight: bold;
+  font-size: 25px !important;
+  text-shadow: 0 3px 20px black;
+}
+
+.sliderNav {
+  margin-bottom: calc(var(--base) * 1.5);
+  margin-left: 4px;
+
+  @include mid-break {
+    display: none;
+  }
+}
+
+.navButton {
+  all: unset;
+  cursor: pointer;
+  width:calc(var(--base) * 1);
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+.prevButton {
+  margin-right: calc(var(--base) * 1.5);
+}

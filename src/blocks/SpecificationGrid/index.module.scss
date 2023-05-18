@@ -1,0 +1,44 @@
+
+@use '@scss/common' as *;
+
+.specifications{
+    min-width: calc(var(--base) * 12);
+    padding-top: calc(var(--base) * 0.75);
+    position: relative;
+  }
+
+//   .specifications {
+//   position: relative;
+//   box-sizing: content-box;
+//   min-width: calc(var(--base) * 12);
+//   padding-top: calc(var(--base) * 0.75);
+//   border: 1px solid transparent;
+//   transition: border-color 0.3s ease-in-out;
+// }
+
+// .specifications:before,
+// .specifications:after {
+//   content: "";
+//   position: absolute;
+//   width: 0;
+//   height: 0;
+//   border: 1px solid transparent;
+//   transition: all 0.3s ease-in-out;
+// }
+
+// .specifications:before {
+//   top: 0;
+//   left: 0;
+// }
+
+// .specifications:after {
+//   bottom: 0;
+//   right: 0;
+// }
+
+// .specifications:hover:before,
+// .specifications:hover:after {
+//   width: calc(100% - 2px);
+//   height: calc(100% - 2px);
+//   border-color: black;
+// }

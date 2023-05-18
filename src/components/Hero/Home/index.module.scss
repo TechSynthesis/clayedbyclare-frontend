@@ -1,0 +1,308 @@
+@use '@scss/common.scss' as *;
+
+.homeHero {
+  margin-top: calc(-1 * var(--page-padding-top));
+}
+
+.wrap {
+  position: relative;
+  background: var(--theme-bg);
+  min-height: 100vh !important;
+
+}
+
+.bg {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 10;
+  overflow: hidden;
+  min-height: 100vh !important;
+  @include small-break{
+    min-height: 100vh !important;
+  } 
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(20,20,20,.7) 0%, rgba(50,50,50,0.5) 40%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.bgImage {
+  pointer-events: none;
+  min-height: 100% !important;
+  //height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    object-fit: cover;
+  }
+  @include small-break {
+    width: 100vw;
+    min-height: 100vmax;
+    // height: 100vmax;
+  }
+
+}
+
+.contentWrap {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  // height: calc(100vh);
+  hr {
+    margin-top: calc(var(--base) * 5);
+    margin-bottom: calc(var(--base) * 5);
+    margin-left: calc(-1 * var(--gutter-h) / 2);
+    margin-right: calc(-1 * var(--gutter-h) / 2);
+    width: calc(100% + var(--gutter-h));
+
+    @include large-break {
+      margin-top: var(--block-spacing);
+      margin-bottom: var(--block-spacing);
+      width: initial;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  @include small-break {
+    padding-top: var(--block-spacing);
+    padding-bottom: var(--block-spacing);
+  }
+
+}
+
+.content {
+  display: flex;
+  min-height: 72vh;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-left: calc(var(--gutter-h) / -2);
+  margin-right: calc(var(--gutter-h) / -2);
+  padding-top: var(--page-padding-top); //fix padding for wide laptops
+
+  @include large-break {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @include mid-break {
+    padding-top: calc(var(--base) * 6);
+    min-height: 100vh;
+    // height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: max-content;
+  }
+  @include small-break {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    min-height: 100vh;
+    // height: 100vh;
+    // min-height: max-content;
+  }
+}
+
+.richText {
+  width: 70%;
+  padding-right: calc(var(--base) * 3);
+
+  h1 {
+    @include jumbo;
+  }
+
+  @include mid-break {
+    width: 100%;
+    margin-bottom: var(--base);
+    padding-right: 0;
+    h1 {
+      @include jumbo;
+    }
+  }
+  @include small-break{
+    h1{
+      font-size: 4.5em;
+      letter-spacing: 0px;
+      line-height: 1.15em;
+      font-weight: 500;
+    }
+  }
+}
+
+.sidebar {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include mid-break {
+    width: 100%;
+  }
+}
+
+.sidebarContent {
+  @include small-break{
+    h6{
+      font-size: 1.2em;
+      line-height: 1.2em;
+      letter-spacing: 0.4px;
+    }
+  }
+}
+
+.actions,
+.buttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.actions {
+  margin-bottom: calc(var(--base) * 0.5);
+
+  & > *:not(:last-child) {
+    margin-bottom: var(--base);
+  }
+
+  @include mid-break {
+    margin-bottom: calc(var(--base) * 0.5);
+  }
+  @include small-break {
+    font-size: 18px;
+  }
+}
+
+.buttons {
+  display: flex;
+  
+  li {
+    flex: 0 0 50%;
+
+    > * {
+      width: 100%;
+    }
+
+    &:first-child {
+      padding-right: calc(var(--base) / 2);
+    }
+
+    &:last-child {
+      padding-left: calc(var(--base) / 2);
+    }
+  }
+
+  @include mid-break {
+    display: block;
+
+    li {
+      padding: 0 !important;
+      margin-bottom: calc(var(--base) / 2);
+    }
+  }
+}
+.shortIntro{
+  margin-top: 1.5rem;
+  p {
+    @include large-body
+  }
+  font-color:rgba(255, 255, 255, 0.8);
+  
+}
+
+.adjectives {
+  display: flex;
+  pointer-events: none;
+  margin-bottom: var(--block-spacing);
+  
+}
+
+.adjective {
+  display: block;
+  font-size: 20px;
+  line-height: 1;
+  overflow: hidden;
+
+  &:after {
+    content: '—';
+  }
+
+  @include large-break {
+    font-size: 20px;
+  }
+
+  @include mid-break {
+    font-size: 2px;
+  }
+
+  @include small-break {
+    font-size: 2px;
+  }
+}
+
+.padForMedia {
+  padding-top: 28.125%; // half of 16x9 ratio
+}
+.bottomPadding {
+  padding-bottom: 2%;
+}
+.mediaGutter {
+  position: relative;
+}
+
+.voidSpaceBelowMedia {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.media {
+  @include shadow-lg;
+  position: relative;
+  z-index: 2;
+  margin-top: -28.125%; // half of 16x9 ratio
+}
+
+
+.CenteredBrandText {
+  display: flex; 
+  text-align: center; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  padding: var(--block-spacing);
+  height: 100vh;
+
+}
+.textBlock{
+  text-align: center; 
+}
+
+.gradientText {
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(57.72px + (100vw - 1220px) * 0.03); 
+  line-height: calc(80px + (100vw - 1220px) * 0.03); 
+
+  background: linear-gradient(87deg, #2b3d87 0%, #d13528 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+
+  padding: 0px;
+}

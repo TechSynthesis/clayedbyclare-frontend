@@ -1,0 +1,89 @@
+@use '@scss/common.scss' as *;
+
+.desktopNav {
+  @include small-break {
+    display: none;
+    visibility: hidden;
+  }
+  
+}
+
+.grid {
+  :local(a) {
+    text-decoration: none;
+  }
+ 
+}
+
+.container {
+  position: relative;
+  
+}
+
+.logo {
+  width: 150px;
+;
+
+  // svg {
+  //   height: min-content !important;
+  // }
+
+}
+
+.navItems {
+  padding-left: 4rem;
+  display: flex;
+
+  :local(.navItem) {
+    margin-right: calc(var(--base) * .75);
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center !important;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+
+  // @include large-break {
+  //   justify-content: unset;
+  // }
+}
+
+.navCta {
+ width: calc( var(--gutter-h) /2 - var(--base));
+  width: max-content;
+  // position: absolute;
+  right: calc(3*var(--base));
+  // right: 1rem;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  // transform: translateX(100%);
+  top: 0;
+
+  > * {
+    margin-right: calc(var(--base) * .75);
+    line-height: 1;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @include large-break {
+    position: static;
+    right: 0;
+    transform: unset;
+    width: auto;
+  }
+  @media  (max-width: 1114px) {
+    display: none !important;
+  } 
+}
+.ctaItem {
+  margin-right: calc(var(--base) * .75);
+}

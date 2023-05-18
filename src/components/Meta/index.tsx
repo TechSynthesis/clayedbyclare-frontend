@@ -1,0 +1,46 @@
+import React, { Fragment } from 'react'
+import { Media } from '@root/payload-types'
+
+export type MetaType = {
+  image?: Media | string
+  description?: string
+  title?: string
+  slug: string
+}
+
+const defaults = {
+  title: `${process.env.WEBSITE_TITLE}`,
+  description: `${process.env.WEBSITE_DECRIPTION}`,
+  image: '',
+}
+
+const Meta: React.FC<MetaType> = ({
+  title: titleFromProps,
+  description: descriptionFromProps,
+  image: imageFromProps,
+  slug,
+}) => {
+  const title = titleFromProps || defaults.title
+  const description = descriptionFromProps || defaults.description
+  const siteName = process.env.NEXT_WEBSITE_NAME || 'Tech Inverted'
+  const image =
+    typeof imageFromProps !== 'string' && imageFromProps?.url
+      ? `${process.env.NEXT_PUBLIC_CMS_URL}${imageFromProps.url}`
+      : defaults.image
+
+  return (
+    <Fragment>
+      <title>{title}</title>
+      <meta property="og:title" content={title} />
+      <meta name="description" content={description} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:url" content={`https://cmw-dryice.com/${slug}`} />
+      <meta property="og:site_name" content={siteName} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:type" content="website" />
+    </Fragment>
+  )
+}
+
+export default Meta

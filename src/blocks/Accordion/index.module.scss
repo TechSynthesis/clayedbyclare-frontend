@@ -1,0 +1,65 @@
+@use "@scss/common" as *;
+
+
+.hr {
+    margin: 0;
+    margin-bottom: calc(var(--base) * 4);
+    border-color: currentColor;
+
+    @include mid-break {
+        margin-bottom: calc(var(--base) * 2);
+    }
+}
+
+.richText {
+    margin-bottom: calc(var(--base) * 3);
+    @include mid-break {
+        margin-bottom: var(--base);
+    }
+}
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    button{
+        text-align: left;
+        width: max-content;
+        background-color: transparent;
+        border: none;
+        display: inline-flex;
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 38px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 1.515789rem;
+        color: rgb(125, 125, 125);
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 5px;
+        transition-duration: 75ms;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: all;
+    }
+    button{
+        margin-right: 2rem !important;
+
+        @include small-break {
+            font-size: calc(20px + .4vw);
+        }
+    }
+    
+
+    
+    }
+
+    .buttonActive button{
+        color: var(--theme-text);
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: var(--theme-text);
+        }
+

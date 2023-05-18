@@ -1,0 +1,171 @@
+
+@use '@scss/common' as *;
+.sliderNav {
+    margin-bottom: calc(var(--base) * 1.5);
+    margin-left: 4px;
+  
+    @include mid-break {
+      display: none;
+    }
+  }
+  
+  .navButton {
+    all: unset;
+    cursor: pointer;
+    width:calc(var(--base) * 1);
+  
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  .prevButton {
+    margin-right: calc(var(--base) * 1.5);
+  }
+  
+  .sliderTrack {
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    max-height: 80vh;
+    height: 80vh;
+
+    @include small-break {
+        max-height: 60vh;
+        height: 60vh !important;
+        min-height: 300px;
+    }
+  }
+  
+  .sliderTrack::-webkit-scrollbar-track {
+    display: none;
+  }
+  
+  .sliderTrack::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .sliderTrack::-webkit-scrollbar-thumb {
+    display: none;
+  }
+  
+  .trackWrap {
+    position: relative;
+  }
+  
+  .slide {
+    margin-right: calc(var(--base));
+    @include mid-break {
+      margin-right: var(--base);
+    }
+    &.clickable {
+      cursor: pointer;
+    }
+  }
+  
+  .imageSlider {
+    object-fit: contain;
+    min-height: fit-content;
+    height: 100%;
+    width: 100%;
+    & img {
+      width: 100%;
+      object-fit: contain !important;
+      height: 100%;
+    }
+    > div {
+        height: 100%;
+      }
+  }
+
+  .thumbnailTrack {
+    height: 120px;
+    @include mid-break {
+      padding-bottom: var(--base);
+    }
+  
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      height: 4px;
+      cursor: pointer;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--theme-text);
+      border-radius: 0px;
+      cursor: pointer;
+    }
+  }
+  
+  .thumbnail {
+    margin-top: 20px;
+    width: 160px !important;
+    height: auto;
+    overflow: hidden;
+  
+    margin-right: calc(var(--base));
+  
+    @include mid-break {
+      margin-right: var(--base);
+    }
+  
+
+  }
+  .imageContainer{
+    height: 100px;
+    object-fit:scale-down;
+    &:first-child{
+        height: 100px !important;
+    }
+    }
+  .imageInThumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+  }
+  
+.thumbnailActive {
+    border: 3px solid currentColor;
+}
+
+
+
+.modal {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  will-change: opacity;
+  transition: opacity var(--modal-trans-time) linear;
+  opacity: 0;
+
+  &:global(.modal-item--appearActive),
+  &:global(.modal-item--appearDone),
+  &:global(.modal-item--enterActive),
+  &:global(.modal-item--enterDone) {
+    opacity: 1;
+  }
+
+  &:global(.modal-item--exitActive),
+  &:global(.modal-item--exitDone) {
+    opacity: 0;
+  }
+}
+
+.modalContent {
+  width: 20%;
+  color:  var(--color-html);
+}
+
+.close {
+  all: unset;
+  color: white;
+  cursor: pointer;
+  margin-bottom: base(0.5);
+}

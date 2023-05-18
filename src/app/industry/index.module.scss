@@ -1,0 +1,8 @@
+@use '@scss/common' as *;
+
+.stickyLine {
+  top: calc(var(--page-padding-top) * -1);
+}
+.post {
+
+}

@@ -1,0 +1,131 @@
+@use '@scss/common' as *;
+
+.gridContainer {
+  position: relative;
+}
+
+.gutter {
+  z-index: 10;
+}
+
+.stickyLine {
+  top: calc(var(--page-padding-top) * -1);
+}
+.product {
+  position: relative;
+  overflow: hidden;
+  // min-height: 80vh; //other imp
+  min-height: min-content;
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--theme-bg);
+
+  @include mid-break {
+    flex-direction: row;
+    min-height: min-content;
+  }
+  border:1px solid var(--theme-elevation-500);
+}
+
+.header{
+
+  width: 100%;
+  height: min-content;
+  color: currentColor;
+  background-color: var(--theme-elevation-0);
+  padding: calc(var(--base) );
+  border-bottom:1px solid var(--theme-elevation-500);
+  
+  @include mid-break {
+    border-bottom: unset;
+    border-right:1px solid var(--theme-elevation-500);
+  }
+}
+
+.media {
+  // position: absolute;
+  // bottom: 0;
+  // z-index: -1;
+  height: 100%;
+  max-height: 500px;
+  // max-height: 685px; // other imp
+  width: 100%; 
+  
+  img {
+    object-fit: cover;
+    object-position: bottom 0%;
+    width:100%;
+    max-width:100%;
+    // height:auto !important; //other imp
+    height: 100%;
+    max-height:none;
+    display:block;  
+    
+  }
+}
+// .media {
+//   position: absolute;
+//   bottom: 0;
+//   z-index: -1;
+//   height: 100%;
+
+//   img {
+//     object-fit: cover;
+//     object-position: bottom 0%;
+//     width:100%;
+//     max-width:100%;
+//     height:auto !important;
+//     max-height:none;
+//     display:block;  
+    
+//   }
+// }
+
+
+
+.sublimation {
+  position:relative;
+  // bottom: 0;
+  // left: 0;
+  min-width: 100vw;
+  width: 100%;
+  height: auto;
+  z-index: -10;
+  margin-top: -50%;
+  row-gap: 0px;
+  padding-left: 0px !important;
+  padding-right: 0px;
+  overflow: hidden;
+}
+
+.sublimationInner {
+  position: relative;
+  margin-top: 20%;
+ 
+  > video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.sublimationInner:before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: calc(20% + 1px);
+  background-image: linear-gradient(to top, black, transparent);
+}
+
+.sublimationInner::after {
+  content:"";
+  position:absolute;
+  top:-20%; 
+  left:-50px; 
+  width : calc(100% + 100px); 
+  height : calc(120% + 1px);
+  background-image : linear-gradient(to top , var(--theme-bg) , transparent);
+}

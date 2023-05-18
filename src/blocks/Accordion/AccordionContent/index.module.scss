@@ -1,0 +1,51 @@
+@use '@scss/common' as *;
+.accordionToggler{
+    width: 100% !important;
+    align-items: center;
+    background-color: var(--theme-bg);
+    border:1px solid var(--theme-elevation-500);
+    color: currentColor;
+    cursor: pointer;
+    display: flex;
+    font-size: var(--base);
+    font-weight: 600;
+    justify-content: space-between;
+    letter-spacing: inherit;
+    line-height: inherit;
+    margin: unset;
+    padding: 1.32rem;
+    text-align: left; 
+    margin-bottom: 0.2rem;
+}
+
+
+.accordionContent{
+    box-sizing: border-box;
+    color: currentColor;
+    grid-column-end: span 10;
+    grid-column-start: 2;
+    line-height: 36px;
+    min-width: 0px;
+    margin: 0 2px 0 2px;
+    transition: background-color 0.3s ease-in-out , padding 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    padding: none;
+    opacity: 0;
+    background-color: none;
+}
+.accordionContentIsOpen{
+    padding: var(--base);
+    background-color:  var(--theme-bg);
+    margin-bottom: 1rem;
+    opacity: 1;
+    border:1px solid var(--theme-elevation-500);
+
+    @include  extra-large-break {
+        padding-right: 15%;
+    }
+    @include mid-break {
+        padding-right: 10%;
+    }
+    @include small-break {
+        padding-right: var(--base);
+    }
+}
