@@ -5,10 +5,9 @@ import React from 'react'
 import { Page } from '@root/payload-types'
 import { Gutter } from '@components/Gutter'
 import { CMSLink } from '@components/CMSLink'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css/bundle'
-import 'swiper/css/pagination'
-import { Navigation, Pagination, Scrollbar, A11y, EffectCards } from 'swiper'
+import { Slide, SliderNav, SliderProvider, SliderTrack } from '@faceless-ui/slider'
+import { ArrowIcon } from '@root/icons/ArrowIcon'
+
 import { Media } from '@components/Media'
 import classes from './index.module.scss'
 
@@ -61,31 +60,51 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
                   return (
                     <Cell key={index} cols={cols} colsL={cols} colsM={4} colsS={smallCols}>
                       <div className={classes.card}>
-                        <Swiper
-                          modules={[EffectCards, Navigation, Pagination, Scrollbar, A11y]}
-                          spaceBetween={50}
-                          slidesPerView={1}
-                          scrollbar={{ draggable: true }}
-                          simulateTouch={true}
-                          grabCursor={true}
-                          cssMode={true}
-                          // autoHeight={true}
-                        >
-                          {productImageSlides.map(
-                            slide =>
-                              slide.image &&
-                              typeof slide.image !== 'string' && (
-                                <SwiperSlide>
-                                  {' '}
-                                  <Media
-                                    resource={slide.image}
-                                    key={slide.id}
-                                    // className={classes.media}
-                                  />
-                                </SwiperSlide>
-                              ),
-                          )}
-                        </Swiper>
+                        <SliderProvider slidesToShow={1} scrollSnap={true}>
+                          <div className={classes.trackWrap}>
+                            <SliderTrack className={classes.sliderTrack}>
+                              {productImageSlides &&
+                                productImageSlides.map(image => {
+                                  if (typeof image === 'string') return null
+                                  return (
+                                    <Slide
+                                      key={index}
+                                      index={index}
+                                      className={[
+                                        classes.slide,
+                                        classes.imageSlider,
+                                        classes.clickable,
+                                      ]
+                                        .filter(Boolean)
+                                        .join(' ')}
+                                    >
+                                      {typeof image.image !== 'string' && (
+                                        <Media
+                                          resource={image.image}
+                                          key={image.id}
+                                          // className={classes.media}
+                                        />
+                                      )}
+                                    </Slide>
+                                  )
+                                })}
+                            </SliderTrack>
+
+                            <SliderNav
+                              className={classes.sliderNav}
+                              prevButtonProps={{
+                                className: [classes.navButton, classes.prevButton]
+                                  .filter(Boolean)
+                                  .join(' '),
+                                children: <ArrowIcon rotation={225} />,
+                              }}
+                              nextButtonProps={{
+                                className: classes.navButton,
+                                children: <ArrowIcon rotation={45} />,
+                              }}
+                            />
+                          </div>
+                        </SliderProvider>
                         <div className={classes.cardInfo}>
                           <h4>{title}</h4>
                           <p>
