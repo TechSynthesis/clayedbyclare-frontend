@@ -133,7 +133,7 @@ export const Footer: React.FC<FooterType> = props => {
             <Cell cols={3} colsM={5}>
               <div className={classes.socialLinks}>
                 <a
-                  href="https://www.instagram.com/clayedbyclare"
+                  href="https://www.instagram.com/clayedbyclare/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={classes.socialIconLink}

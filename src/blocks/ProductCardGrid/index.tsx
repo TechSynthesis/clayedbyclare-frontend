@@ -28,7 +28,7 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
         <Gutter>
           {richText && (
             <Grid className={classes.intro}>
-              <Cell cols={8} colsM={8}>
+              <Cell cols={12} colsM={12}>
                 <RichText className={classes.richText} content={richText} />
               </Cell>
               {hasLinks && (
@@ -87,7 +87,7 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
                           )}
                         </Swiper>
                         <div className={classes.cardInfo}>
-                          <h3>{title}</h3>
+                          <h4>{title}</h4>
                           <p>
                             <b>S${price}</b>
                           </p>

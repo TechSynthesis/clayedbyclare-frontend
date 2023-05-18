@@ -19,6 +19,9 @@
     @include mid-break {
         margin-bottom: var(--base);
     }
+    p{
+        text-align:center;
+    }
 }
 
 .bg {
