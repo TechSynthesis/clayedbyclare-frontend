@@ -20,6 +20,16 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
   const hasCards = Array.isArray(cards) && cards.length > 0
   const hasLinks = Array.isArray(links) && links.length > 0
 
+  // Add a ref to the container element that wraps the cells
+  // const containerRef = useRef(null)
+  // useEffect(() => {
+  //   const observer = lozad('.card img', {
+  //     // Customize threshold and other options if needed
+  //   })
+
+  //   observer.observe(containerRef.current)
+  // }, [])
+
   return (
     <BlockSpacing className={classes.cardGrid}>
       <div>
@@ -63,12 +73,12 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
                           <div className={classes.trackWrap}>
                             <SliderTrack className={classes.sliderTrack}>
                               {productImageSlides &&
-                                productImageSlides.map(image => {
+                                productImageSlides.map((image, index1) => {
                                   if (typeof image === 'string') return null
                                   return (
                                     <Slide
-                                      key={index}
-                                      index={index}
+                                      key={index1}
+                                      index={index1}
                                       className={[
                                         classes.slide,
                                         classes.imageSlider,
