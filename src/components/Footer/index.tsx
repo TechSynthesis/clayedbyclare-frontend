@@ -146,7 +146,7 @@ export const Footer: React.FC<FooterType> = props => {
             <Cell cols={4} colsM={8}>
               <p className={classes.copyright}>
                 {' '}
-                &copy; {new Date().getFullYear()} clayedbyclare &#x2665{' '}
+                &copy; {new Date().getFullYear()} clayedbyclare ❤️{' '}
                 <a href="https://techinverted.com" target="_blank" rel="noopener noreferrer">
                   TechInverted
                 </a>

@@ -1,6 +1,5 @@
 'use client'
 
-import { Breadcrumbs } from '@components/Breadcrumbs'
 import { Gutter } from '@components/Gutter'
 import { HeaderObserver } from '@components/HeaderObserver'
 import { useTheme } from '@providers/Theme'
@@ -16,7 +15,7 @@ export const DefaultHero: React.FC<
   Pick<Page['hero'], 'richText' | 'sidebarContent'> & {
     breadcrumbs?: Page['breadcrumbs']
   }
-> = ({ richText, sidebarContent, breadcrumbs }) => {
+> = ({ richText, sidebarContent }) => {
   const theme = useTheme()
   const withoutSidebar =
     !sidebarContent ||
@@ -31,7 +30,7 @@ export const DefaultHero: React.FC<
     <HeaderObserver color={theme} pullUp={pullUpObserver}>
       <Gutter>
         <div className={classes.defaultHero}>
-          {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+          {/* {breadcrumbs && <Breadcrumbs items={breadcrumbs} />} */}
           <Grid>
             <Cell cols={withoutSidebar ? 10 : 8} colsM={withoutSidebar ? 7 : 5} colsS={8}>
               <RichText className={classes.richText} content={richText} />

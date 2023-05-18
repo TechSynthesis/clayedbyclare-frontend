@@ -7,6 +7,7 @@ import { Gutter } from '@components/Gutter'
 import { CMSLink } from '@components/CMSLink'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css/bundle'
+import 'swiper/css/pagination'
 import { Navigation, Pagination, Scrollbar, A11y, EffectCards } from 'swiper'
 import { Media } from '@components/Media'
 import classes from './index.module.scss'
@@ -25,7 +26,6 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
     <BlockSpacing className={classes.cardGrid}>
       <div>
         <Gutter>
-          <hr className={classes.hr} />
           {richText && (
             <Grid className={classes.intro}>
               <Cell cols={8} colsM={8}>
@@ -56,14 +56,20 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
               <Grid>
                 {cards.map((card, index) => {
                   const { title, price, productImageSlides } = card
+                  const cols = cards.length === 2 ? 6 : 4
+                  const smallCols = cards.length === 2 ? 8 : 4
                   return (
-                    <Cell key={index} cols={4} colsL={4} colsM={4} colsS={4}>
+                    <Cell key={index} cols={cols} colsL={cols} colsM={4} colsS={smallCols}>
                       <div className={classes.card}>
                         <Swiper
                           modules={[EffectCards, Navigation, Pagination, Scrollbar, A11y]}
                           spaceBetween={50}
                           slidesPerView={1}
                           scrollbar={{ draggable: true }}
+                          simulateTouch={true}
+                          grabCursor={true}
+                          loop={true}
+                          // autoHeight={true}
                         >
                           {productImageSlides.map(
                             slide =>
