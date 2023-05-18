@@ -68,7 +68,7 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
                           scrollbar={{ draggable: true }}
                           simulateTouch={true}
                           grabCursor={true}
-                          loop={true}
+                          cssMode={true}
                           // autoHeight={true}
                         >
                           {productImageSlides.map(

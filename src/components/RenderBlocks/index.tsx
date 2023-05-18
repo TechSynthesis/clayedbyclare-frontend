@@ -29,7 +29,11 @@ import { SpecificationGrid } from '@blocks/SpecificationGrid'
 import { FeatureGrid } from '@blocks/FeatureGrid'
 import { ProductFeatures } from '@blocks/ProductFeatures'
 import { LocationsGrid } from '@blocks/LocationsGrid'
-import { ProductCardGrid } from '@blocks/ProductCardGrid'
+import dynamic from 'next/dynamic'
+
+const ProductCardGrid = dynamic(() => import('../../blocks/ProductCardGrid'), {
+  loading: () => <p>Loading...</p>,
+})
 
 type ReusableContentBlockType = Extract<Page['layout'][0], { blockType: 'reusableContentBlock' }>
 
