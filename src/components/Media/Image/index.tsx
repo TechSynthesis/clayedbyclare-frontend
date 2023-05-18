@@ -90,7 +90,6 @@ export const Image: React.FC<Props> = props => {
           height={!fill ? height : undefined}
           sizes={sizes}
           priority={priority}
-          lazy
         />
       )}
     </React.Fragment>
