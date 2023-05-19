@@ -5,7 +5,9 @@ import React from 'react'
 import { Page } from '@root/payload-types'
 import { Gutter } from '@components/Gutter'
 import { CMSLink } from '@components/CMSLink'
-import { Slide, SliderProvider, SliderTrack } from '@faceless-ui/slider'
+import { Splide, SplideSlide } from '@splidejs/react-splide'
+import '@splidejs/react-splide/css'
+import '@splidejs/react-splide/css/core'
 
 import { Media } from '@components/Media'
 import classes from './index.module.scss'
@@ -60,50 +62,50 @@ export const ProductCardGrid: React.FC<ProductCardGridProps> = props => {
           )}
           {hasCards && (
             <div className={classes.cards}>
-              <div className={classes.bg}>{/* <PixelBackground /> */}</div>
+              <div className={classes.bg}></div>
               <Grid>
                 {cards.map((card, index) => {
-                  const { title, price, productImageSlides } = card
+                  const { title, price, soldOut, productImageSlides } = card
                   const cols = cards.length === 2 ? 6 : 4
                   const smallCols = cards.length === 2 ? 8 : 4
                   return (
                     <Cell key={index} cols={cols} colsL={cols} colsM={4} colsS={smallCols}>
                       <div className={classes.card}>
-                        <SliderProvider slidesToShow={1}>
-                          <div className={classes.trackWrap}>
-                            <SliderTrack className={classes.sliderTrack}>
-                              {productImageSlides &&
-                                productImageSlides.map((image, index1) => {
-                                  if (typeof image === 'string') return null
-                                  return (
-                                    <Slide
-                                      key={index1}
-                                      index={index1}
-                                      className={[
-                                        classes.slide,
-                                        classes.imageSlider,
-                                        classes.clickable,
-                                      ]
-                                        .filter(Boolean)
-                                        .join(' ')}
-                                    >
-                                      {typeof image.image !== 'string' && (
-                                        <Media
-                                          resource={image.image}
-                                          key={image.id}
-                                          // className={classes.media}
-                                        />
-                                      )}
-                                    </Slide>
-                                  )
-                                })}
-                            </SliderTrack>
-                          </div>
-                        </SliderProvider>
+                        <Splide
+                          options={{
+                            rewind: true,
+                            lazyLoad: 'nearby',
+                          }}
+                          aria-label={`${title} slider`}
+                        >
+                          {productImageSlides &&
+                            productImageSlides.map((image, index1) => {
+                              if (typeof image === 'string') return null
+                              return (
+                                <SplideSlide key={index1}>
+                                  {typeof image.image !== 'string' && (
+                                    <Media
+                                      resource={image.image}
+                                      key={image.id}
+                                      data-splade-lazy={image.image.url}
+                                    />
+                                  )}
+                                </SplideSlide>
+                              )
+                            })}
+                        </Splide>
                         <div className={classes.cardInfo}>
                           <h4>{title}</h4>
                           <p>
-                            <b>S${price}</b>
+                            <b>
+                              {soldOut ? (
+                                <p className={classes.soldOut}>Sold Out</p>
+                              ) : (
+                                <p>
+                                  <b>S${price}</b>
+                                </p>
+                              )}
+                            </b>
                           </p>
                         </div>
                       </div>
