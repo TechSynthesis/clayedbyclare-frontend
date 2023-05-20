@@ -24,19 +24,16 @@ export const DesktopNav: React.FC<Pick<MainMenu, 'navItems'>> = ({ navItems }) =
             })}
           </div>
 
-          <div className={classes.navCta}>
-            <Link href="/contact-us" className={classes.ctaItem}>
-              Get In touch
-            </Link>
-            {/* <Button
+          {/* <div className={classes.navCta}>
+            <Button
               className={classes.ctaItem}
               appearance="primary"
               label="Schedule Call"
               icon="arrow"
               el={'a'}
               href="/schedule-call"
-            /> */}
-          </div>
+            /> 
+          </div> */}
         </Cell>
       </Grid>
     </Gutter>

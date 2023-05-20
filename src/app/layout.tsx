@@ -20,6 +20,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="icon" href="/images/favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+        <GoogleAnalytics />
       </head>
       <body
         className={[
@@ -29,7 +30,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           neueMontrealItalic.variable,
         ].join(' ')}
       >
-        <GoogleAnalytics />
         <GoogleTagManager />
 
         <Providers>
